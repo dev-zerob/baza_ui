@@ -35,7 +35,7 @@ class AccountConsolidationScreen extends StatelessWidget {
                         TextSpan(
                           text: '기존 회원',
                           style: TextStyle(
-                            color: AppColor.instance.primary,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                         TextSpan(text: '이신가요?'),

@@ -44,6 +44,35 @@ class AppTheme {
         splashColor: appColor.primary.withOpacity(0.8),
       ),
 
+      radioTheme: RadioThemeData(),
+
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide:
+              BorderSide(width: 1.0, color: AppColor.instance.grey[200]),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide:
+              BorderSide(width: 1.0, color: AppColor.instance.grey[200]),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(width: 2.0, color: AppColor.instance.primary),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(width: 1.0, color: AppColor.instance.red[700]),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(width: 1.0, color: AppColor.instance.red[700]),
+        ),
+        disabledBorder: InputBorder.none,
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 18.0, 20.0, 16.0),
+      ),
+
       // 페이지 애니메이션 테마
       pageTransitionsTheme: PageTransitionsTheme(builders: {
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
@@ -156,6 +185,7 @@ class AppTheme {
       AppBarTheme(
         color: appBarColor,
         elevation: 0.0,
+        centerTitle: true,
       );
 
   /// 아이콘 테마
@@ -174,13 +204,12 @@ class AppTheme {
   }) =>
       ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          elevation: 0.0,
-          primary: appColor.primary,
-          minimumSize: const Size(double.infinity, 60.0),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(99.0)),
-          ),
-          onPrimary: appColor.blueGrey[100]
-        ),
+            elevation: 0.0,
+            primary: appColor.primary,
+            minimumSize: const Size(double.infinity, 60.0),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(99.0)),
+            ),
+            onPrimary: appColor.blueGrey[100]),
       );
 }

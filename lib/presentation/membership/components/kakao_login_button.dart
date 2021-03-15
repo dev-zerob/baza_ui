@@ -1,3 +1,4 @@
+import 'package:baza_ui/presentation/membership/third_party_screen.dart';
 import 'package:flutter/material.dart';
 
 class KaKaoLoginButton extends StatelessWidget {
@@ -9,7 +10,14 @@ class KaKaoLoginButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         primary: Color(0xFFFFDC00),
       ),
-      onPressed: (){},
+      onPressed: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ThirdPartyScreen(),
+          ),
+        );
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

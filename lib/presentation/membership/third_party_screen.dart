@@ -1,3 +1,4 @@
+import 'package:baza_ui/presentation/membership/register_step_01.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class ThirdPartyScreen extends StatelessWidget {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Container(),
+                      builder: (context) => RegisterStep01(),
                     ),
                     ModalRoute.withName('/'),
                   );
@@ -30,7 +31,7 @@ class ThirdPartyScreen extends StatelessWidget {
                   '로그인 완료',
                   style: Theme.of(context).textTheme.button,
                 ),
-              )
+              ),
             ]
           ),
         ),
