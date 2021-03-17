@@ -1,26 +1,37 @@
+import 'package:baza_ui/core/theme/app_color.dart';
 import 'package:baza_ui/presentation/membership/account_consolidation_result_screen.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
 class PassScreen extends StatelessWidget {
+  final StyleUtil _style = StyleUtil.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: StyleUtil.instance.mainPadding(),
+          padding: _style.paddingAppBar(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Pass 연동화면',
-                style: Theme.of(context).textTheme.headline1.copyWith(fontFamily: 'Gmarket', fontWeight: FontWeight.w700),
+                style: _style
+                    .textStyle(
+                      fontWeight: FontWeight.w700,
+                      isEmphasis: true,
+                    )
+                    .headline1,
               ),
               SizedBox(
                 height: 20.0,
               ),
               ElevatedButton(
+                style: _style.buttonRegular(
+                  buttonColor: Colors.limeAccent,
+                ),
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
@@ -43,6 +54,9 @@ class PassScreen extends StatelessWidget {
                 height: 10.0,
               ),
               ElevatedButton(
+                style: _style.buttonRegular(
+                  buttonColor: Colors.limeAccent,
+                ),
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
@@ -66,6 +80,9 @@ class PassScreen extends StatelessWidget {
                 height: 10.0,
               ),
               ElevatedButton(
+                style: _style.buttonRegular(
+                  buttonColor: Colors.limeAccent,
+                ),
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
@@ -88,9 +105,11 @@ class PassScreen extends StatelessWidget {
                 height: 10.0,
               ),
               ElevatedButton(
+                style: _style.buttonRegular(
+                  buttonColor: Colors.limeAccent,
+                ),
                 onPressed: () {
                   Navigator.pop(context);
-
                 },
                 child: Text(
                   '탈퇴한 회원일 경우',

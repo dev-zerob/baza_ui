@@ -6,13 +6,17 @@ import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
+  final AppColor _color = AppColor.instance;
+  final StyleUtil _style = StyleUtil.instance;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
           alignment: Alignment.center,
           children: [
+            // Background Image
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -22,34 +26,26 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: StyleUtil.instance.titlePadding(),
+              padding: _style.paddingPopup(),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // 텍스트 영역
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        '어쩌고\n저쩌고',
-                        style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontFamily: StyleUtil.instance.emphasisFont,
-                              fontWeight: FontWeight.w700,
-                            ),
-                      ),
-                      // SizedBox(
-                      //   height: 3.0,
-                      // ),
-                      Text(
-                        '바자',
-                        style: Theme.of(context).textTheme.headline1.copyWith(
-                          fontFamily: StyleUtil.instance.emphasisFont,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
+                  // Text Area
+                  Text.rich(
+                    TextSpan(
+                      text: '패션\n플리마켓\n',
+                      children: [
+                        TextSpan(
+                          text: '바자',
+                          style: TextStyle(color: _color.primary),
+                        )
+                      ],
+                      style: _style
+                          .textStyle(fontWeight: FontWeight.w700)
+                          .headline1,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  // 버튼 영역
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -61,44 +57,16 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 34.0,
-                            height: 1.0,
-                            color: AppColor.instance.blueGrey[700],
-                          ),
-                          SizedBox(
-                            width: 8.0,
-                          ),
-                          Text(
-                            'or',
-                            style: TextStyle(
-                              fontSize: 13.0,
-                              color: AppColor.instance.blueGrey[700],
-                            ),
-                          ),
-                          SizedBox(
-                            width: 8.0,
-                          ),
-                          Container(
-                            width: 34.0,
-                            height: 1.0,
-                            color: AppColor.instance.blueGrey[700],
-                          ),
-                        ],
-                      ),
+                      _orDivider(_color.blueGrey[700]),
                       SizedBox(
                         height: 10.0,
                       ),
                       ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
-                          side: BorderSide(
-                            color: AppColor.instance.grey[200],
+                        style: _style.buttonRegular(
+                          buttonColor: _color.white,
+                          borderSide: BorderSide(
                             width: 1.0,
+                            color: _color.grey[200],
                           ),
                         ),
                         onPressed: () {
@@ -112,10 +80,7 @@ class LoginScreen extends StatelessWidget {
                         },
                         child: Text(
                           '기존 회원 로그인',
-                          style: Theme.of(context).textTheme.bodyText1.copyWith(
-                            color: AppColor.instance.black,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: _style.textStyle().bodyText1,
                         ),
                       )
                     ],
@@ -126,6 +91,38 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _orDivider(Color color) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          width: 34.0,
+          height: 1.0,
+          color: color,
+        ),
+        SizedBox(
+          width: 8.0,
+        ),
+        Text(
+          'or',
+          style: TextStyle(
+            fontSize: 13.0,
+            color: color,
+          ),
+        ),
+        SizedBox(
+          width: 8.0,
+        ),
+        Container(
+          width: 34.0,
+          height: 1.0,
+          color: color,
+        ),
+      ],
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:baza_ui/core/theme/app_color.dart';
+import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
 class GenderButton extends StatefulWidget {
@@ -13,17 +14,15 @@ class GenderButton extends StatefulWidget {
 }
 
 class _GenderButtonState extends State<GenderButton> {
+  final AppColor _color = AppColor.instance;
+  final StyleUtil _style = StyleUtil.instance;
+
   String choiceCd;
 
-  String femaleCd = 'GENDER_FEMALE';
-  String femaleNm = '여성';
-  String maleCd = 'GENDER_MALE';
-  String maleNm = '남성';
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  List<Map<String, String>> genderList = [
+    {'code': 'GENDER_FEMALE', 'name': '여성'},
+    {'code': 'GENDER_MALE', 'name': '남성'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,7 @@ class _GenderButtonState extends State<GenderButton> {
           child: GestureDetector(
             onTap: () {
               setState(() {
-                choiceCd = femaleCd;
+                choiceCd = genderList[0]['code'];
                 if (widget.onChange != null) {
                   widget.onChange(choiceCd);
                 }
@@ -41,38 +40,44 @@ class _GenderButtonState extends State<GenderButton> {
             },
             child: Container(
               decoration: BoxDecoration(
-                color: choiceCd == femaleCd
-                    ? AppColor.instance.primary[100]
-                    : AppColor.instance.white,
+                color: choiceCd == genderList[0]['code']
+                    ? _color.primary[100]
+                    : _color.white,
                 borderRadius: BorderRadius.circular(99.0),
                 border: Border.all(
-                  width: choiceCd == femaleCd ? 2.0 : 1.0,
-                  color: choiceCd == femaleCd
-                      ? AppColor.instance.primary
-                      : AppColor.instance.grey[200],
+                  width: choiceCd == genderList[0]['code'] ? 2.0 : 1.0,
+                  color: choiceCd == genderList[0]['code']
+                      ? _color.primary
+                      : _color.grey[200],
                 ),
               ),
               height: 54.0,
               child: Center(
                 child: Text(
-                  '$femaleNm',
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
-                      color: choiceCd == femaleCd
-                          ? AppColor.instance.primary
-                          : AppColor.instance.grey[400],
-                      fontWeight: choiceCd == femaleCd
-                          ? FontWeight.w500
-                          : FontWeight.w400),
+                  '${genderList[0]['name']}',
+                  style: _style
+                      .textStyle(
+                        fontColor: choiceCd == genderList[0]['code']
+                            ? _color.primary
+                            : _color.grey[400],
+                        fontWeight: choiceCd == genderList[0]['code']
+                            ? FontWeight.w500
+                            : FontWeight.w400,
+                      )
+                      .bodyText1,
                 ),
               ),
             ),
           ),
         ),
+        SizedBox(
+          width: 8.0,
+        ),
         Flexible(
           child: GestureDetector(
             onTap: () {
               setState(() {
-                choiceCd = maleCd;
+                choiceCd = genderList[0]['code'];
                 if (widget.onChange != null) {
                   widget.onChange(choiceCd);
                 }
@@ -80,28 +85,31 @@ class _GenderButtonState extends State<GenderButton> {
             },
             child: Container(
               decoration: BoxDecoration(
-                color: choiceCd == maleCd
-                    ? AppColor.instance.primary[100]
-                    : AppColor.instance.white,
+                color: choiceCd == genderList[1]['code']
+                    ? _color.primary[100]
+                    : _color.white,
                 borderRadius: BorderRadius.circular(99.0),
                 border: Border.all(
-                  width: choiceCd == maleCd ? 2.0 : 1.0,
-                  color: choiceCd == maleCd
-                      ? AppColor.instance.primary
-                      : AppColor.instance.grey[200],
+                  width: choiceCd == genderList[1]['code'] ? 2.0 : 1.0,
+                  color: choiceCd == genderList[1]['code']
+                      ? _color.primary
+                      : _color.grey[200],
                 ),
               ),
               height: 54.0,
               child: Center(
                 child: Text(
-                  '$maleNm',
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
-                      color: choiceCd == maleCd
-                          ? AppColor.instance.primary
-                          : AppColor.instance.grey[400],
-                      fontWeight: choiceCd == maleCd
-                          ? FontWeight.w500
-                          : FontWeight.w400),
+                  '${genderList[1]['name']}',
+                  style: _style
+                      .textStyle(
+                        fontColor: choiceCd == genderList[1]['code']
+                            ? _color.primary
+                            : _color.grey[400],
+                        fontWeight: choiceCd == genderList[1]['code']
+                            ? FontWeight.w500
+                            : FontWeight.w400,
+                      )
+                      .bodyText1,
                 ),
               ),
             ),

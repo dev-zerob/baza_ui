@@ -10,7 +10,7 @@ class AccountConsolidationResultScreen extends StatelessWidget {
   final String caption;
   final String question;
 
-  const AccountConsolidationResultScreen({
+  AccountConsolidationResultScreen({
     Key key,
     @required this.title,
     this.subTitle,
@@ -18,12 +18,15 @@ class AccountConsolidationResultScreen extends StatelessWidget {
     this.question,
   }) : super(key: key);
 
+  final AppColor _color = AppColor.instance;
+  final StyleUtil _style = StyleUtil.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: StyleUtil.instance.noAppBarPadding(),
+          padding: _style.paddingNoAppBar(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,30 +37,35 @@ class AccountConsolidationResultScreen extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: Theme.of(context).textTheme.headline2.copyWith(
-                          fontFamily: StyleUtil.instance.emphasisFont,
+                    style: _style
+                        .textStyle(
                           fontWeight: FontWeight.w700,
-                        ),
+                          isEmphasis: true,
+                        )
+                        .headline2,
                   ),
                   SizedBox(
                     height: 20.0,
                   ),
                   Text(
                     subTitle ?? '',
-                    style: Theme.of(context).textTheme.subtitle1.copyWith(
-                          color: AppColor.instance.grey[800],
+                    style: _style
+                        .textStyle(
+                          fontColor: _color.grey[800],
                           fontWeight: FontWeight.w500,
-                        ),
+                        )
+                        .subtitle1,
                   ),
                   SizedBox(
                     height: 10.0,
                   ),
                   Text(
                     caption ?? '',
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          color: AppColor.instance.grey[600],
-                          fontWeight: FontWeight.w400,
-                        ),
+                    style: _style
+                        .textStyle(
+                          fontColor: _color.grey[600],
+                        )
+                        .bodyText1,
                   ),
                 ],
               ),
@@ -75,13 +83,14 @@ class AccountConsolidationResultScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 20.0),
                       child: InkWell(
-                        onTap: (){},
+                        onTap: () {},
                         child: Text(
                           question ?? '',
-                          style: Theme.of(context).textTheme.bodyText1.copyWith(
-                            color: AppColor.instance.grey[500],
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: _style
+                              .textStyle(
+                                fontColor: _color.grey[500],
+                              )
+                              .bodyText1,
                         ),
                       ),
                     ),

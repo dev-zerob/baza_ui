@@ -1,14 +1,15 @@
 import 'package:baza_ui/presentation/membership/third_party_screen.dart';
+import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
 class AppleLoginButton extends StatelessWidget {
-  const AppleLoginButton({Key key}) : super(key: key);
+  final StyleUtil _style = StyleUtil.instance;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        primary: Color(0xFF000000),
+      style: _style.buttonRegular(
+        buttonColor: Color(0xFF000000),
       ),
       onPressed: () {
         Navigator.push(
@@ -31,10 +32,12 @@ class AppleLoginButton extends StatelessWidget {
           ),
           Text(
             'Apple로 로그인',
-            style: Theme.of(context).textTheme.subtitle1.copyWith(
-              color: Color(0xFFFFFFFF),
-              fontWeight: FontWeight.w500,
-            ),
+            style: _style
+                .textStyle(
+                  fontColor: const Color(0xFFFFFFFF),
+                  fontWeight: FontWeight.w500,
+                )
+                .subtitle1,
           ),
         ],
       ),
