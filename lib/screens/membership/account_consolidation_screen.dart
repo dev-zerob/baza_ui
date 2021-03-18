@@ -1,5 +1,5 @@
-import 'package:baza_ui/core/theme/app_color.dart';
-import 'package:baza_ui/presentation/membership/pass_screen.dart';
+import 'package:baza_ui/screens/membership/pass_screen.dart';
+import 'package:baza_ui/theme/app_color.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-// import 'package:baza_ui/core/theme/app_color.dart';
+// import 'package:baza_ui/theme/app_color.dart';
 // import 'package:baza_ui/presentation/membership/components/gender_button.dart';
 // import 'package:baza_ui/presentation/membership/register_step_01.dart';
 // import 'package:baza_ui/presentation/membership/register_step_03.dart';

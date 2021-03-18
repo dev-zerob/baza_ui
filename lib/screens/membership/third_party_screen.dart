@@ -1,4 +1,4 @@
-import 'package:baza_ui/presentation/membership/register_user_info.dart';
+import 'package:baza_ui/screens/membership/register_user_info.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 

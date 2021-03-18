@@ -1,5 +1,4 @@
-import 'package:baza_ui/core/theme/app_color.dart';
-import 'package:baza_ui/presentation/membership/account_consolidation_result_screen.dart';
+import 'package:baza_ui/screens/membership/account_consolidation_result_screen.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 

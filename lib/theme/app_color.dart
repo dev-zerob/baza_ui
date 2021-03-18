@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Colors defined in the app's theme
 class AppColor {
   static final AppColor instance = AppColor();
 

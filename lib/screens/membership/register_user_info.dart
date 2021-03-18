@@ -1,6 +1,6 @@
-import 'package:baza_ui/core/theme/app_color.dart';
-import 'package:baza_ui/presentation/membership/components/gender_button.dart';
-import 'package:baza_ui/presentation/membership/components/profile_register_circle.dart';
+import 'package:baza_ui/screens/membership/components/gender_button.dart';
+import 'package:baza_ui/screens/membership/components/profile_register_circle.dart';
+import 'package:baza_ui/theme/app_color.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 

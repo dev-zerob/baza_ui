@@ -1,5 +1,6 @@
-import 'package:baza_ui/core/theme/app_theme.dart';
-import 'package:baza_ui/presentation/membership/login_screen.dart';
+import 'package:baza_ui/constants/routes.dart';
+import 'package:baza_ui/router.dart' as Router;
+import 'package:baza_ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Baza Ui',
       theme: AppTheme().getTheme(ThemeMode.light),
-      home: LoginScreen(),
+      initialRoute: LOGIN_ROUTE,
+      onGenerateRoute: Router.onGenerateRoute,
     );
   }
 }

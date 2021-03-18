@@ -1,6 +1,6 @@
-import 'package:baza_ui/core/theme/app_color.dart';
-import 'package:baza_ui/presentation/membership/components/apple_login_button.dart';
-import 'package:baza_ui/presentation/membership/components/kakao_login_button.dart';
+import 'package:baza_ui/screens/membership/components/apple_login_button.dart';
+import 'package:baza_ui/screens/membership/components/kakao_login_button.dart';
+import 'package:baza_ui/theme/app_color.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 

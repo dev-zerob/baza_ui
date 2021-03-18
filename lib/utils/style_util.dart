@@ -1,4 +1,4 @@
-import 'package:baza_ui/core/theme/app_color.dart';
+import 'package:baza_ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -6,7 +6,7 @@ class StyleUtil {
   static final StyleUtil instance = StyleUtil();
   static final AppColor _appColor = AppColor.instance;
 
-  // Defined
+  // Defined Value
   final String _fontEmphasis = 'Gmarket';
   final String _fontEn = 'Montserrat';
   final String _fontKr = 'SpoqaHanSansNeo';

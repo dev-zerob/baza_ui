@@ -1,7 +1,7 @@
-import 'package:baza_ui/core/theme/app_color.dart';
-import 'package:baza_ui/presentation/membership/account_consolidation_screen.dart';
-import 'package:baza_ui/presentation/membership/components/apple_login_button.dart';
-import 'package:baza_ui/presentation/membership/components/kakao_login_button.dart';
+import 'package:baza_ui/screens/membership/components/apple_login_button.dart';
+import 'package:baza_ui/screens/membership/components/kakao_login_button.dart';
+import 'package:baza_ui/screens/membership/account_consolidation_screen.dart';
+import 'package:baza_ui/theme/app_color.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
@@ -33,8 +33,10 @@ class LoginScreen extends StatelessWidget {
                   // Text Area
                   Text.rich(
                     TextSpan(
-                      text: '패션\n플리마켓\n',
                       children: [
+                        TextSpan(
+                          text: '패션\n플리마켓\n',
+                        ),
                         TextSpan(
                           text: '바자',
                           style: TextStyle(color: _color.primary),
