@@ -1,10 +1,10 @@
+import 'package:baza_ui/injector.dart';
 import 'package:baza_ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
 /// Style defined in the app's theme
 class AppStyle {
-  final AppColor color;
-  AppStyle({@required this.color});
+  final AppColor _color = Injector<AppColor>();
 
   // Defined Value
   final double _inputBorderRadius = 10.0;
@@ -32,7 +32,7 @@ class AppStyle {
         borderRadius: BorderRadius.all(Radius.circular(99.0)),
       ),
       side: borderSide ?? BorderSide.none,
-      onPrimary: color.blueGrey[100],
+      onPrimary: _color.blueGrey[100],
     );
   }
 
@@ -43,23 +43,23 @@ class AppStyle {
     return InputDecoration(
       border: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(width: 1.0, color: color.grey[200]),
+        borderSide: BorderSide(width: 1.0, color: _color.grey[200]),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(width: 1.0, color: color.grey[200]),
+        borderSide: BorderSide(width: 1.0, color: _color.grey[200]),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(width: 2.0, color: color.primary),
+        borderSide: BorderSide(width: 2.0, color: _color.primary),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(width: 1.0, color: color.red[700]),
+        borderSide: BorderSide(width: 1.0, color: _color.red[700]),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(width: 1.0, color: color.red[700]),
+        borderSide: BorderSide(width: 1.0, color: _color.red[700]),
       ),
       disabledBorder: InputBorder.none,
       counterText: '',

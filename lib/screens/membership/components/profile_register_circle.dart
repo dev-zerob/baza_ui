@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileRegisterCircle extends StatelessWidget {
-  final AppColor _color = AppColor.instance;
+  final AppColor _color = AppColor();
 
   final double radius = 41.0;
 

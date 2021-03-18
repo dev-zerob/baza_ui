@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 /// Colors defined in the app's theme
 class AppColor {
-  static final AppColor instance = AppColor();
-
   /// Basic Color
   Color transparent = Colors.transparent;
   Color black = Colors.black;

@@ -14,7 +14,7 @@ class GenderButton extends StatefulWidget {
 }
 
 class _GenderButtonState extends State<GenderButton> {
-  final AppColor _color = AppColor.instance;
+  final AppColor _color = AppColor();
   final StyleUtil _style = StyleUtil.instance;
 
   String choiceCd;

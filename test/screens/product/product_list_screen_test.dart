@@ -1,8 +1,8 @@
-import 'package:baza_ui/screens/product_list_screen.dart';
+import 'package:baza_ui/screens/membership/components/kakao_login_button.dart';
+import 'package:baza_ui/screens/product/product_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../lib/screens/membership/components/kakao_login_button.dart';
 
 void main() {
   testWidgets('카카오톡 로그인 버튼 클릭 시 상품 조회 화면 나타납니다.', (WidgetTester tester) async {
@@ -21,6 +21,6 @@ void main() {
 
     expect(find.byKey(Key('ProductListScreen')), findsOneWidget);
     expect(find.text('productListScreen'), findsOneWidget);
-    expect(find.byType(ProduectListScreen), findsOneWidget);
+    expect(find.byType(ProductListScreen), findsOneWidget);
   });
 }

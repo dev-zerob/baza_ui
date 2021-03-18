@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class StyleUtil {
   static final StyleUtil instance = StyleUtil();
-  static final AppColor _appColor = AppColor.instance;
+  static final AppColor _appColor = AppColor();
 
   // Defined Value
   final String _fontEmphasis = 'Gmarket';

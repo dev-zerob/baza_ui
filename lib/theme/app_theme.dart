@@ -1,16 +1,13 @@
 import 'dart:ui';
 
+import 'package:baza_ui/injector.dart';
 import 'package:baza_ui/theme/app_color.dart';
-import 'package:baza_ui/theme/app_style.dart';
-import 'package:baza_ui/theme/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /// Theme in the app
 class AppTheme {
-  static final AppColor color = AppColor();
-  static final AppText text = AppText(fontColor: color.black);
-  static final AppStyle style = AppStyle(color: color);
+  final AppColor _color = Injector<AppColor>();
 
   ThemeData getTheme(ThemeMode themeMode) {
     /// 라이트 모드
@@ -18,15 +15,15 @@ class AppTheme {
       brightness: Brightness.light,
 
       // 기존 테마
-      primaryColor: color.primary,
-      accentColor: color.secondary,
-      splashColor: color.blueGrey[100],
-      backgroundColor: color.white,
-      scaffoldBackgroundColor: color.white,
+      primaryColor: _color.primary,
+      accentColor: _color.secondary,
+      splashColor: _color.blueGrey[100],
+      backgroundColor: _color.white,
+      scaffoldBackgroundColor: _color.white,
 
       // 앱바
       appBarTheme: AppBarTheme(
-        color: color.white,
+        color: _color.white,
         elevation: 0.0,
         centerTitle: true,
       ),

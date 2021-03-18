@@ -1,5 +1,4 @@
-import 'package:baza_ui/screens/membership/third_party_screen.dart';
-import 'package:baza_ui/screens/product_list_screen.dart';
+import 'package:baza_ui/screens/product/product_list_screen.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,7 @@ class KaKaoLoginButton extends StatelessWidget {
           context,
           MaterialPageRoute(
             // builder: (context) => ThirdPartyScreen(),
-            builder: (context) => ProduectListScreen(),
+            builder: (context) => ProductListScreen(),
           ),
         );
       },

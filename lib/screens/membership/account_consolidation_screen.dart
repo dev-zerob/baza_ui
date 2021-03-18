@@ -4,7 +4,7 @@ import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
 class AccountConsolidationScreen extends StatelessWidget {
-  final AppColor _color = AppColor.instance;
+  final AppColor _color = AppColor();
   final StyleUtil _style = StyleUtil.instance;
 
   @override

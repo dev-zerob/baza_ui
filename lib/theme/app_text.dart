@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 /// Text defined in the app's theme
 class AppText {
-  final Color fontColor;
-  AppText({@required this.fontColor});
-
   /// Defined Use App Font
   /// [_emphasis : 강조 폰트, _english : 영문 폰트, _korea : 한국 폰트]
   final String _emphasisFont = 'Gmarket';
   final String _enFont = 'Montserrat';
   final String _krFont = 'SpoqaHanSansNeo';
+
+  final Color _fontColor = Colors.black;
 
   /// Defined Common TextStyle Option
   TextStyle _defaultTextStyle(
@@ -18,7 +17,7 @@ class AppText {
     bool isEmphasis,
   ) {
     return TextStyle(
-      color: fontColor ?? this.fontColor,
+      color: fontColor ?? _fontColor,
       fontWeight: fontWeight ?? FontWeight.w400,
       fontFamily: isEmphasis ?? false ? _emphasisFont : _enFont,
       fontFamilyFallback: [_enFont, _krFont],

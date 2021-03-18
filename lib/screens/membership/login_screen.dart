@@ -1,13 +1,20 @@
+import 'package:baza_ui/constants/routes.dart';
+import 'package:baza_ui/injector.dart';
+import 'package:baza_ui/module/navigation_module.dart';
 import 'package:baza_ui/screens/membership/components/apple_login_button.dart';
 import 'package:baza_ui/screens/membership/components/kakao_login_button.dart';
-import 'package:baza_ui/screens/membership/account_consolidation_screen.dart';
 import 'package:baza_ui/theme/app_color.dart';
-import 'package:baza_ui/utils/style_util.dart';
+import 'package:baza_ui/theme/app_style.dart';
+import 'package:baza_ui/theme/app_text.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
-  final AppColor _color = AppColor.instance;
-  final StyleUtil _style = StyleUtil.instance;
+  final AppColor _color = Injector<AppColor>();
+  final AppText _text = Injector<AppText>();
+  final AppStyle _style = Injector<AppStyle>();
+  final NavigatorModule _navigator = Injector<NavigatorModule>();
+
+  final String bgImagePath = 'assets/images/login_bg.png';
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,7 @@ class LoginScreen extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/login_bg.png'),
+                  image: AssetImage(bgImagePath),
                   fit: BoxFit.contain,
                 ),
               ),
@@ -30,7 +37,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Text Area
+                  // Title Area
                   Text.rich(
                     TextSpan(
                       children: [
@@ -42,9 +49,7 @@ class LoginScreen extends StatelessWidget {
                           style: TextStyle(color: _color.primary),
                         )
                       ],
-                      style: _style
-                          .textStyle(fontWeight: FontWeight.w700)
-                          .headline1,
+                      style: _text.headline1(fontWeight: FontWeight.w700),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -64,6 +69,7 @@ class LoginScreen extends StatelessWidget {
                         height: 10.0,
                       ),
                       ElevatedButton(
+                        key: Key('account_consolidation_button'),
                         style: _style.buttonRegular(
                           buttonColor: _color.white,
                           borderSide: BorderSide(
@@ -72,17 +78,12 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  AccountConsolidationScreen(),
-                            ),
-                          );
+                          _navigator
+                              .navigatorTo(MEMBERSHIP_ACCOUNT_CONSOLIDATION);
                         },
                         child: Text(
                           '기존 회원 로그인',
-                          style: _style.textStyle().bodyText1,
+                          style: _text.bodyText1(),
                         ),
                       )
                     ],

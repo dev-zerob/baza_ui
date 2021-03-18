@@ -1,4 +1,7 @@
 import 'package:baza_ui/module/navigation_module.dart';
+import 'package:baza_ui/theme/app_color.dart';
+import 'package:baza_ui/theme/app_style.dart';
+import 'package:baza_ui/theme/app_text.dart';
 import 'package:baza_ui/theme/app_theme.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,6 +14,9 @@ Future<void> setUpInjector({ bool debugMode = false }) async {
 
   /// [THEME]
   Injector.registerLazySingleton<AppTheme>(() => AppTheme());
+  Injector.registerLazySingleton<AppColor>(() => AppColor());
+  Injector.registerLazySingleton<AppStyle>(() => AppStyle());
+  Injector.registerLazySingleton<AppText>(() => AppText());
 
   /// [MODULES]
   Injector.registerLazySingleton<NavigatorModule>(() => NavigatorModule());

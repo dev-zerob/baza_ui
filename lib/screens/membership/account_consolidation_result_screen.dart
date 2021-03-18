@@ -18,7 +18,7 @@ class AccountConsolidationResultScreen extends StatelessWidget {
     this.question,
   }) : super(key: key);
 
-  final AppColor _color = AppColor.instance;
+  final AppColor _color = AppColor();
   final StyleUtil _style = StyleUtil.instance;
 
   @override
