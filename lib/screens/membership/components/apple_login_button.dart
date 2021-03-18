@@ -1,6 +1,8 @@
-import 'file:///C:/dev/project/private/baza_ui/lib/screens/membership/third_party_screen.dart';
+
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
+
+import '../third_party_screen.dart';
 
 class AppleLoginButton extends StatelessWidget {
   final StyleUtil _style = StyleUtil.instance;

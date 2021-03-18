@@ -1,4 +1,5 @@
 import 'package:baza_ui/screens/membership/third_party_screen.dart';
+import 'package:baza_ui/screens/product_list_screen.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class KaKaoLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      key: Key('kakaoButton'),
       style: _style.buttonRegular(
         buttonColor: Color(0xFFFFDC00),
       ),
@@ -15,7 +17,8 @@ class KaKaoLoginButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ThirdPartyScreen(),
+            // builder: (context) => ThirdPartyScreen(),
+            builder: (context) => ProduectListScreen(),
           ),
         );
       },
