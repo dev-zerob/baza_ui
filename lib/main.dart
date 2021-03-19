@@ -2,11 +2,12 @@ import 'package:baza_ui/constants/routes.dart';
 import 'package:baza_ui/injector.dart';
 import 'package:baza_ui/module/navigation_module.dart';
 import 'package:baza_ui/router.dart' as Router;
+import 'package:baza_ui/screens/post_screen.dart';
 import 'package:baza_ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  setUpInjector();
+  await setUpInjector();
 
   runApp(MyApp());
 }
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Baza Ui',
       theme: _theme.getTheme(ThemeMode.light),
-      initialRoute: ROUTE_LOGIN,
-      onGenerateRoute: Router.onGenerateRoute,
+      // initialRoute: ROUTE_LOGIN,
+      // onGenerateRoute: Router.onGenerateRoute,
       navigatorKey: _navigator.key,
+      home: PostScreen(),
     );
   }
 }
