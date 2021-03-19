@@ -1,25 +1,25 @@
-
-import 'package:baza_ui/utils/style_util.dart';
+import 'package:baza_ui/constants/keys.dart';
+import 'package:baza_ui/constants/routes.dart';
+import 'package:baza_ui/injector.dart';
+import 'package:baza_ui/module/navigation_module.dart';
+import 'package:baza_ui/theme/app_style.dart';
+import 'package:baza_ui/theme/app_text.dart';
 import 'package:flutter/material.dart';
 
-import '../third_party_screen.dart';
-
 class AppleLoginButton extends StatelessWidget {
-  final StyleUtil _style = StyleUtil.instance;
+  final AppStyle _style = Injector<AppStyle>();
+  final AppText _text = Injector<AppText>();
+  final NavigatorModule _navigator = Injector<NavigatorModule>();
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      key: Key(KEY_APPLE_LOGIN_BUTTON),
       style: _style.buttonRegular(
         buttonColor: Color(0xFF000000),
       ),
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ThirdPartyScreen(),
-          ),
-        );
+        _navigator.navigatorTo(ROUTE_APPLE_LOGIN);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -34,12 +34,10 @@ class AppleLoginButton extends StatelessWidget {
           ),
           Text(
             'Apple로 로그인',
-            style: _style
-                .textStyle(
-                  fontColor: const Color(0xFFFFFFFF),
-                  fontWeight: FontWeight.w500,
-                )
-                .subtitle1,
+            style: _text.subtitle1(
+              fontColor: const Color(0xFFFFFFFF),
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),

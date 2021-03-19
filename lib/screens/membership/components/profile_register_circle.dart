@@ -1,9 +1,10 @@
+import 'package:baza_ui/injector.dart';
 import 'package:baza_ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileRegisterCircle extends StatelessWidget {
-  final AppColor _color = AppColor();
+  final AppColor _color = Injector<AppColor>();
 
   final double radius = 41.0;
 

@@ -1,4 +1,6 @@
+import 'package:baza_ui/constants/keys.dart';
 import 'package:baza_ui/constants/routes.dart';
+import 'package:baza_ui/constants/strings.dart';
 import 'package:baza_ui/injector.dart';
 import 'package:baza_ui/module/navigation_module.dart';
 import 'package:baza_ui/screens/membership/components/apple_login_button.dart';
@@ -14,20 +16,18 @@ class LoginScreen extends StatelessWidget {
   final AppStyle _style = Injector<AppStyle>();
   final NavigatorModule _navigator = Injector<NavigatorModule>();
 
-  final String bgImagePath = 'assets/images/login_bg.png';
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
+    return Material(
+      child: SafeArea(
+        child: Stack(
           alignment: Alignment.center,
           children: [
             // Background Image
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(bgImagePath),
+                  image: AssetImage('assets/images/login_bg.png'),
                   fit: BoxFit.contain,
                 ),
               ),
@@ -42,10 +42,10 @@ class LoginScreen extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: '패션\n플리마켓\n',
+                          text: LOGIN_TITLE,
                         ),
                         TextSpan(
-                          text: '바자',
+                          text: APP_NAME,
                           style: TextStyle(color: _color.primary),
                         )
                       ],
@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                         height: 10.0,
                       ),
                       ElevatedButton(
-                        key: Key('account_consolidation_button'),
+                        key: Key(KEY_ACCOUNT_INTEGRATION_BUTTON),
                         style: _style.buttonRegular(
                           buttonColor: _color.white,
                           borderSide: BorderSide(
@@ -78,8 +78,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          _navigator
-                              .navigatorTo(MEMBERSHIP_ACCOUNT_CONSOLIDATION);
+                          _navigator.navigatorTo(ROUTE_ACCOUNT_INTEGRATION);
                         },
                         child: Text(
                           '기존 회원 로그인',

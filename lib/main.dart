@@ -13,15 +13,16 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final NavigatorModule _navigator = Injector<NavigatorModule>();
+  final AppTheme _theme = Injector<AppTheme>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Baza Ui',
-      theme: AppTheme().getTheme(ThemeMode.light),
-      initialRoute: MEMBERSHIP_LOGIN_ROUTE,
+      theme: _theme.getTheme(ThemeMode.light),
+      initialRoute: ROUTE_LOGIN,
       onGenerateRoute: Router.onGenerateRoute,
-      navigatorKey: _navigator.navigatorKey,
+      navigatorKey: _navigator.key,
     );
   }
 }

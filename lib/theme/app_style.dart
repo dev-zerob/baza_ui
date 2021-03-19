@@ -1,13 +1,17 @@
 import 'package:baza_ui/injector.dart';
 import 'package:baza_ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 /// Style defined in the app's theme
 class AppStyle {
   final AppColor _color = Injector<AppColor>();
 
   // Defined Value
-  final double _inputBorderRadius = 10.0;
+  static const _iconPath = 'assets/icon/';
+  static const double _inputRadius = 10.0;
+  static const double _buttonRadius = 99.0;
+  static const Size _iconSize = const Size(16.0, 16.0);
 
   /// 패딩
   EdgeInsets paddingAppBar() =>
@@ -29,16 +33,37 @@ class AppStyle {
       primary: buttonColor,
       minimumSize: const Size(double.infinity, 60.0),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(99.0)),
+        borderRadius: BorderRadius.all(Radius.circular(_buttonRadius)),
       ),
       side: borderSide ?? BorderSide.none,
       onPrimary: _color.blueGrey[100],
     );
   }
 
+  Widget buttonSvgIcon({
+    @required String iconNm,
+    Size iconSize,
+    Function onTap,
+  }) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(99.0),
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        alignment: Alignment.center,
+        child: SvgPicture.asset(
+          '$_iconPath$iconNm.svg',
+          color: _color.grey[700],
+          width: iconSize?.width ?? _iconSize.width,
+          height: iconSize?.height ?? _iconSize.height,
+        ),
+      ),
+    );
+  }
+
   /// 입력폼
   InputDecoration inputDecorationRegular() {
-    BorderRadius radius = BorderRadius.circular(_inputBorderRadius);
+    BorderRadius radius = BorderRadius.circular(_inputRadius);
 
     return InputDecoration(
       border: OutlineInputBorder(

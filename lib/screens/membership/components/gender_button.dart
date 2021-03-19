@@ -1,3 +1,4 @@
+import 'package:baza_ui/injector.dart';
 import 'package:baza_ui/theme/app_color.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class GenderButton extends StatefulWidget {
 }
 
 class _GenderButtonState extends State<GenderButton> {
-  final AppColor _color = AppColor();
+  final AppColor _color = Injector<AppColor>();
   final StyleUtil _style = StyleUtil.instance;
 
   String choiceCd;

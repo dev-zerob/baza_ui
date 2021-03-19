@@ -1,18 +1,19 @@
+import 'package:baza_ui/injector.dart';
 import 'package:baza_ui/screens/membership/components/gender_button.dart';
 import 'package:baza_ui/screens/membership/components/profile_register_circle.dart';
 import 'package:baza_ui/theme/app_color.dart';
 import 'package:baza_ui/utils/style_util.dart';
 import 'package:flutter/material.dart';
 
-class RegisterUserInfo extends StatelessWidget {
-  final AppColor _color = AppColor();
+class RegisterUserInfoScreen extends StatelessWidget {
+  final AppColor _color = Injector<AppColor>();
   final StyleUtil _style = StyleUtil.instance;
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Material(
+      child: SafeArea(
+        child: SingleChildScrollView(
           padding: _style.paddingNoAppBar(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

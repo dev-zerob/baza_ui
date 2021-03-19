@@ -1,25 +1,25 @@
-import 'package:baza_ui/screens/product/product_list_screen.dart';
-import 'package:baza_ui/utils/style_util.dart';
+import 'package:baza_ui/constants/keys.dart';
+import 'package:baza_ui/constants/routes.dart';
+import 'package:baza_ui/injector.dart';
+import 'package:baza_ui/module/navigation_module.dart';
+import 'package:baza_ui/theme/app_style.dart';
+import 'package:baza_ui/theme/app_text.dart';
 import 'package:flutter/material.dart';
 
 class KaKaoLoginButton extends StatelessWidget {
-  final StyleUtil _style = StyleUtil.instance;
+  final AppStyle _style = Injector<AppStyle>();
+  final AppText _text = Injector<AppText>();
+  final NavigatorModule _navigator = Injector<NavigatorModule>();
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      key: Key('kakaoButton'),
+      key: Key(KEY_KAKAO_LOGIN_BUTTON),
       style: _style.buttonRegular(
         buttonColor: Color(0xFFFFDC00),
       ),
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            // builder: (context) => ThirdPartyScreen(),
-            builder: (context) => ProductListScreen(),
-          ),
-        );
+        _navigator.navigatorTo(ROUTE_KAKAO_LOGIN);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -34,12 +34,10 @@ class KaKaoLoginButton extends StatelessWidget {
           ),
           Text(
             '카카오톡으로 로그인',
-            style: _style
-                .textStyle(
-                  fontColor: const Color(0xFF3B1E1E),
-                  fontWeight: FontWeight.w500,
-                )
-                .subtitle1,
+            style: _text.subtitle1(
+              fontColor: const Color(0xFF3B1E1E),
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),
